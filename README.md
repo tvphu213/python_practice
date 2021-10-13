@@ -1,6 +1,6 @@
 # python_practice
-Bài tập người dùng chạy chương trình với 2 tham số min, max
-In ra 
+Bài tập người dùng chạy chương trình với 2 tham số min, max.
+In ra:
 1. List số lẻ
 2. List số chia hết cho 3
 3. List phần tử giống nhau ở 2 list trên
