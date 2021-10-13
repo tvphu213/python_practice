@@ -1,7 +1,7 @@
 # python_practice
 Bài tập người dùng chạy chương trình với 2 tham số min, max
 In ra 
-1. List số chẵn
+1. List số lẻ
 2. List số chia hết cho 3
 3. List phần tử giống nhau ở 2 list trên
 Nếu người dùng không nhập tham số thì đọc từ file cấu hình default_csv.csv
