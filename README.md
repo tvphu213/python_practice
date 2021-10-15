@@ -1,9 +1,26 @@
 # python_practice
-Bài tập người dùng chạy chương trình với 2 tham số min, max.
 
+Thực hành Python
+Người dùng chạy chương trình với 2 tham số min, max. Nếu không được nhập thì đọc tham số từ file input.csv
 In ra:
-1. List số lẻ
-2. List số chia hết cho 3
-3. List phần tử giống nhau ở 2 list trên
-* Nếu người dùng không nhập tham số thì đọc từ file cấu hình default_csv.csv
-* Cover kiến thức cấu trúc dữ liệu (list, dictionary), OOP, module, đọc file, module, try except, viết except người dùng tự định nghĩa (check min > max thì báo lỗi
+  1. List số lẻ
+  2. List số chia hết cho 3
+  3. List phần tử giống nhau ở 2 list trên
+
+Từ nội dung file input, thêm 1 cột danh sách phần tử giống nhau của 2 list và xuất ra file output.csv
+-> Chạy hàm main() trong main để test
+
+Thực hành Sqlite vs Python
+  Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select)
+  -> Chạy hàm test_db() trong main để test
+  
+ Nội dung cover:
+*  kiến thức cấu trúc dữ liệu (list, dictionary..)
+*  OOP
+*  module
+*  xử lý file
+*  except
+*  Sqlite
+-------------------------
+To do:
+cập nhật update
