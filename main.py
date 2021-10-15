@@ -4,11 +4,14 @@ from scripts.python.get_conf import Config
 from scripts.sql.connect_db import ProcessDB
 import argparse
 
+
 config = Config()
 config.get_init()
 config.get_sql_ini()
 
 # to do: tao menu, chia ham in list ra
+
+
 def main():
     # Lay gia tri min max cua range
     list_intersection = []
@@ -37,7 +40,8 @@ def print_list_as_required(mod1_obj):
     print("Danh sach so chia het cho 3:\n", *mod1_obj.list_multiple_of_three)
     print(config.seprate_line)
     # In ra danh sach so giong nhau o 2 list
-    print("Danh sach phan tu giong nhau o 2 list tren:", *mod1_obj.intersection_2_list)
+    print("Danh sach phan tu giong nhau o 2 list tren:",
+          *mod1_obj.intersection_2_list)
 
 
 def get_input_from_client():
@@ -45,8 +49,10 @@ def get_input_from_client():
     Ham tra ve gia tri min max input tu nguoi dung
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-mi", "--min_threshold", type=int, default=config.not_inputed)
-    parser.add_argument("-mx", "--max_threshold", type=int, default=config.not_inputed)
+    parser.add_argument("-mi", "--min_threshold", type=int,
+                        default=config.not_inputed)
+    parser.add_argument("-mx", "--max_threshold", type=int,
+                        default=config.not_inputed)
     opt = parser.parse_args()
     return opt.min_threshold, opt.max_threshold
 
@@ -65,24 +71,31 @@ def get_range(csv_file):
 
 
 def test_db():
-    db = ProcessDB("testdb.sqlite")
+    db = ProcessDB("database.sqlite")
     cur, conn = db.connect()
-    drop_table_sql = ProcessDB.drop_table_sql(config.sql_drop, "Student")
+    table_name = "Customer"
+    drop_table_sql = ProcessDB.drop_table_sql(config.sql_drop, table_name)
     create_table_sql = ProcessDB.create_table_sql(
-        config.sql_create, "Student", {"name": "TEXT", "class": "TEXT"}
+        config.sql_create, table_name, {"name": "TEXT", "address": "TEXT"}
     )
-    insert_sql = ProcessDB.insert_sql(config.sql_insert, "Student", ["name", "class"])
+    insert_sql = ProcessDB.insert_sql(
+        config.sql_insert, table_name, ["name", "address"])
     cur.execute(drop_table_sql)
+    print("Da xoa bang {} (neu ton tai)".format(table_name))
     cur.execute(create_table_sql)
+    print("Da tao bang", table_name)
     cur.executemany(
-        insert_sql, [("Phu", "AI"), ("Lan", "SQL"), ("Hong", "SQL"), ("Tuan", "Python")]
+        insert_sql, [("Phu", "Cung Trang"), ("Lan", "Quy Nhon, Binh Dinh"),
+                     ("Hong", "Binh Thanh, Ho Chi Minh"), ("Tuan", "Ben Cat, Binh Duong")]
     )
-    print("Chung ta da inserted", cur.rowcount, "records vao bang.")
-    conn.commit()  # cap nhat nhung thay doi len sql database
-    sql_file = open("data\sql_file\sample.sql")
-    sql_as_string = sql_file.read()
-    cur.executescript(sql_as_string)
-    for row in cur.execute(sql_as_string):
+    print("Da them", cur.rowcount, "records vao bang.")
+    conn.commit()  # cap nhat nhung thay doi len database
+
+    # select
+    select_sql = open("data\sql_file\sample.sql")
+    select_sql_as_string = select_sql.read()
+    cur.executescript(select_sql_as_string)
+    for row in cur.execute(select_sql_as_string):
         print(row)
     db.close_cur(cur)
 
