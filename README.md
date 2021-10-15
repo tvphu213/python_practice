@@ -6,12 +6,13 @@ In ra:
   1. List số lẻ
   2. List số chia hết cho 3
   3. List phần tử giống nhau ở 2 list trên
-
 Từ nội dung file input, thêm 1 cột danh sách phần tử giống nhau của 2 list và xuất ra file output.csv
 -> Chạy hàm main() trong main để test
-
+--------------------------------------------------------------------------------------
 Thực hành Sqlite vs Python
   Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select)
+  Tạo script sql bằng hàm
+  Tạo script sql bằng cách đọc file sql
   -> Chạy hàm test_db() trong main để test
   
  Nội dung cover:
@@ -21,6 +22,7 @@ Thực hành Sqlite vs Python
 *  xử lý file
 *  except
 *  Sqlite
--------------------------
+--------------------------------------------------------------------------------------
 To do:
 cập nhật update
+
