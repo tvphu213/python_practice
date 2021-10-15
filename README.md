@@ -10,10 +10,10 @@ Từ nội dung file input, thêm 1 cột danh sách phần tử giống nhau c�
 -> Chạy hàm main() trong main để test
 --------------------------------------------------------------------------------------
 Thực hành Sqlite vs Python
-  Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select)
-  Tạo script sql bằng hàm
-  Tạo script sql bằng cách đọc file sql
-  -> Chạy hàm test_db() trong main để test
+Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select)
+- Tạo script sql bằng hàm
+- Tạo script sql bằng cách đọc file sql
+-> Chạy hàm test_db() trong main để test
   
  Nội dung cover:
 *  kiến thức cấu trúc dữ liệu (list, dictionary..)
