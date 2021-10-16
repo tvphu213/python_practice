@@ -16,11 +16,13 @@ Từ nội dung file input, thêm 1 cột danh sách phần tử giống nhau c�
 
 **II. Thực hành Sqlite với Python**
 
-Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select) -file connect_db.py
+Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert, Select, Update) -file connect_db.py
 
  - Tạo script sql bằng hàm
  
  - Tạo script sql bằng cách đọc file sql
+ 
+ - Ứng dụng thư viện pandas để in kết quả câu lệnh select
  
 -> Chạy hàm test_db() trong main để test
 
