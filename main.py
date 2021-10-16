@@ -3,6 +3,7 @@ from scripts.python.data_file_process import DataFileProcess
 from scripts.python.get_conf import Config
 from scripts.sql.connect_db import ProcessDB
 import argparse
+import pandas as pd
 
 
 config = Config()
@@ -74,16 +75,29 @@ def test_db():
     db = ProcessDB("database.sqlite")
     cur, conn = db.connect()
     table_name = "Customer"
+
+    # tao drop table sql
     drop_table_sql = ProcessDB.drop_table_sql(config.sql_drop, table_name)
+
+    # tao create table sql
     create_table_sql = ProcessDB.create_table_sql(
-        config.sql_create, table_name, {"name": "TEXT", "address": "TEXT"}
+        config.sql_create, table_name, {
+            "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE", "name": "TEXT", "cust_address": "TEXT"}
     )
+
+    # tao insert table sql
     insert_sql = ProcessDB.insert_sql(
-        config.sql_insert, table_name, ["name", "address"])
+        config.sql_insert, table_name, ["name", "cust_address"])
+
+    # drop table
     cur.execute(drop_table_sql)
     print("Da xoa bang {} (neu ton tai)".format(table_name))
+
+    # create table
     cur.execute(create_table_sql)
     print("Da tao bang", table_name)
+
+    # insert data
     cur.executemany(
         insert_sql, [("Phu", "Cung Trang"), ("Lan", "Quy Nhon, Binh Dinh"),
                      ("Hong", "Binh Thanh, Ho Chi Minh"), ("Tuan", "Ben Cat, Binh Duong")]
@@ -92,11 +106,21 @@ def test_db():
     conn.commit()  # cap nhat nhung thay doi len database
 
     # select
-    select_sql = open("data\sql_file\sample.sql")
+    select_sql = open(r"data\sql_file\select_sample.sql")
     select_sql_as_string = select_sql.read()
-    cur.executescript(select_sql_as_string)
     for row in cur.execute(select_sql_as_string):
         print(row)
+
+    #update
+    update_sql = open(r"data\sql_file\update_sample.sql")
+    update_sql_as_string = update_sql.read()
+    for row in cur.execute(update_sql_as_string):
+        print(row)
+    conn.commit()  # cap nhat nhung thay doi len database
+    
+    #in dep voi thu vien pandas
+    print(pd.read_sql_query("SELECT * FROM Customer",conn))
+
     db.close_cur(cur)
 
 

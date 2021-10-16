@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class ProcessDB:
     def __init__(self, db_name):
         self.db_name = db_name
@@ -29,10 +30,12 @@ class ProcessDB:
     @staticmethod
     def insert_sql(sql, table_name, column_names):
         columns_placehold = []
+        column_names_to_string = ", ".join(column_names)
         for i in range(0, len(column_names)):
             columns_placehold.append("?")
+
         columns_placehold = ", ".join(columns_placehold)
-        sql = sql.format(table_name, columns_placehold)
+        sql = sql.format(table_name, column_names_to_string, columns_placehold)
         return sql
 
     @staticmethod
@@ -45,6 +48,3 @@ class ProcessDB:
             if count < len(column_specs):
                 str += ", "
         return str
-
-
-
