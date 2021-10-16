@@ -35,5 +35,5 @@ Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert,
 *  Sqlite
 
 To do:
-cập nhật update sql
+Thêm menu
 
