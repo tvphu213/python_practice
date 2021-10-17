@@ -46,9 +46,11 @@ Sau khi cài scrapy, chạy câu lệnh sau để tạo các file cần thiết 
 >> scrapy startproject tutorial
 
 folder tutorial sẽ được tạo với những file sau
-tutorial/
-    scrapy.cfg            # deploy configuration file
 
+
+tutorial/
+
+    scrapy.cfg            # deploy configuration file
     tutorial/             # project's Python module, you'll import your code from here
         __init__.py
 
