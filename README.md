@@ -38,6 +38,7 @@ Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert,
 + Với BeautifulSoup
  Chạy file scripts\data_crawl\beautifullsoup_scrawl.py để test crawling data sử dụng BeautifulSoup và in ra dạng bảng đẹp
 
+
 + Với scrapy
 Sau khi cài scrapy, chạy câu lệnh sau để tạo các file cần thiết (bên dưới - tutorial là tên project)
 >> scrapy startproject tutorial
@@ -64,3 +65,6 @@ Giả sử ta có file tutorial\tutorial\spiders\quotes_spider.py
 Di chuyển ra thư mục project tutorial\ và chạy lệnh sau để chạy spider với tên được định nghĩa trong file quotes_spider là "quotes", và lưu kết quả vào file quotes.json
 >> scrapy crawl quotes -O quotes.json
 -O là Override file nếu đã tồn tại file cùng tên
+
+To do:
+Thêm menu
