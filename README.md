@@ -35,6 +35,12 @@ Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert,
 *  Sqlite
 
 **II. Thực hành Crawling data sử dụng Scrapy hoặc BeautifulSoup**
+
+So sánh 2 phương pháp trên datacamp 
+https://www.datacamp.com/community/tutorials/making-web-crawlers-scrapy-python#shell
+
+![image](https://user-images.githubusercontent.com/29324233/137621628-2a9f7982-a301-4828-be60-b7ab4bfa84c4.png)
+
 + Ví dụ với BeautifulSoup
 Ta sẽ lấy dữ liệu top 100 trong 1000 phim đánh giá hay nhất trên imdb do user chấm
 https://www.imdb.com/search/title/?count=100&groups=top_1000&sort=user_rating%27
@@ -75,7 +81,7 @@ Di chuyển ra thư mục project tutorial\ và chạy lệnh sau để chạy s
 
 -O là Override file nếu đã tồn tại file cùng tên
 
-![image](https://user-images.githubusercontent.com/29324233/137621341-47f8e521-1146-41cf-98cc-1693705f2b43.png)
+![image](https://user-images.githubusercontent.com/29324233/137621797-d488ee4e-534f-4435-b8cf-67df7abb7b71.png)
 
 
 To do:
