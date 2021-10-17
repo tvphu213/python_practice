@@ -36,10 +36,12 @@ Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert,
 
 **II. Thực hành Crawling data sử dụng Scrapy hoặc BeautifulSoup**
 + Với BeautifulSoup
+
  Chạy file scripts\data_crawl\beautifullsoup_scrawl.py để test crawling data sử dụng BeautifulSoup và in ra dạng bảng đẹp
 
 
 + Với scrapy
+
 Sau khi cài scrapy, chạy câu lệnh sau để tạo các file cần thiết (bên dưới - tutorial là tên project)
 >> scrapy startproject tutorial
 
