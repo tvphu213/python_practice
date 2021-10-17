@@ -34,6 +34,33 @@ Viết class xử lý các vấn đề liên quan database (Drop, Creat, Insert,
 *  except
 *  Sqlite
 
-To do:
-cập nhật update sql
+**II. Thực hành Crawling data sử dụng Scrapy hoặc BeautifulSoup**
++ Với BeautifulSoup
+ Chạy file scripts\data_crawl\beautifullsoup_scrawl.py để test crawling data sử dụng BeautifulSoup và in ra dạng bảng đẹp
 
++ Với scrapy
+Sau khi cài scrapy, chạy câu lệnh sau để tạo các file cần thiết (bên dưới - tutorial là tên project)
+>> scrapy startproject tutorial
+
+folder tutorial sẽ được tạo với những file sau
+tutorial/
+    scrapy.cfg            # deploy configuration file
+
+    tutorial/             # project's Python module, you'll import your code from here
+        __init__.py
+
+        items.py          # project items definition file
+
+        middlewares.py    # project middlewares file
+
+        pipelines.py      # project pipelines file
+
+        settings.py       # project settings file
+
+        spiders/          # a directory where you'll later put your spiders
+            __init__.py
+Tạo spider đặt trong thư mục tutorial\tutorial\spiders\
+Giả sử ta có file tutorial\tutorial\spiders\quotes_spider.py
+Di chuyển ra thư mục project tutorial\ và chạy lệnh sau để chạy spider với tên được định nghĩa trong file quotes_spider là "quotes", và lưu kết quả vào file quotes.json
+>> scrapy crawl quotes -O quotes.json
+-O là Override file nếu đã tồn tại file cùng tên
