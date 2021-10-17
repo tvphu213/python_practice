@@ -1,0 +1,72 @@
+[
+    {
+        "title": "No Time to Die",
+        "weekend": "$55.2M",
+        "gross": "$55.2M",
+        "weeks": "1",
+        "image": "https://m.media-amazon.com/images/M/MV5BYWQ2NzQ1NjktMzNkNS00MGY1LTgwMmMtYTllYTI5YzNmMmE0XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Venom: Let There Be Carnage",
+        "weekend": "$31.8M",
+        "gross": "$141.4M",
+        "weeks": "2",
+        "image": "https://m.media-amazon.com/images/M/MV5BYTc3ZTAwYTgtMmM4ZS00MDRiLWI2Y2EtYmRiZmE0YjkzMGY1XkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "The Addams Family 2",
+        "weekend": "$10.1M",
+        "gross": "$31.2M",
+        "weeks": "2",
+        "image": "https://m.media-amazon.com/images/M/MV5BNzQ5NzJjMDgtNzhjMC00NTQ2LTgzOTUtZThiMWMwYmYwMGYxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Shang-Chi and the Legend of the Ten Rings",
+        "weekend": "$4.3M",
+        "gross": "$212.6M",
+        "weeks": "6",
+        "image": "https://m.media-amazon.com/images/M/MV5BNTliYjlkNDQtMjFlNS00NjgzLWFmMWEtYmM2Mzc2Zjg3ZjEyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "The Many Saints of Newark",
+        "weekend": "$1.4M",
+        "gross": "$7.4M",
+        "weeks": "2",
+        "image": "https://m.media-amazon.com/images/M/MV5BYmQzNmY3YzItOTE3OC00NGZjLTkwZDYtOWVmM2QyMzhiYTgwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Free Guy",
+        "weekend": "$1.2M",
+        "gross": "$119.6M",
+        "weeks": "9",
+        "image": "https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Dear Evan Hansen",
+        "weekend": "$1.0M",
+        "gross": "$13.7M",
+        "weeks": "3",
+        "image": "https://m.media-amazon.com/images/M/MV5BYzMwZTZhY2UtNWRjYy00MDc3LWE2MWUtZTg5NjVmZGY1NTdhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_UY67_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Lamb",
+        "weekend": "$1.0M",
+        "gross": "$1.0M",
+        "weeks": "1",
+        "image": "https://m.media-amazon.com/images/M/MV5BNzYzZTI2YmQtYmZlOS00NDI0LTg5MTktODJkNzc2Yzg0ZmMxXkEyXkFqcGdeQXVyNTQwOTY1MTg@._V1_UY67_CR1,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Candyman",
+        "weekend": "$710K",
+        "gross": "$60.1M",
+        "weeks": "7",
+        "image": "https://m.media-amazon.com/images/M/MV5BOWEzNDAxYmEtYWU0Zi00ZjZjLTkxY2QtMGY1MjY5ZjVhNDdjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX45_CR0,0,45,67_AL_.jpg"
+    },
+    {
+        "title": "Met Opera: Boris Godunov",
+        "weekend": "$387K",
+        "gross": "$387K",
+        "weeks": "1",
+        "image": "https://m.media-amazon.com/images/S/sash/NapCxx-VwSOJtCZ.png"
+    }
+]
