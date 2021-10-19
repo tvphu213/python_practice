@@ -75,7 +75,9 @@ tutorial/
         spiders/          # a directory where you'll later put your spiders
             __init__.py
 Tạo spider đặt trong thư mục tutorial\tutorial\spiders\
+
 Giả sử ta có file tutorial\tutorial\spiders\quotes_spider.py
+
 Di chuyển ra thư mục project tutorial\ và chạy lệnh sau để chạy spider với tên được định nghĩa trong file quotes_spider là "quotes", và lưu kết quả vào file quotes.json
 >> scrapy crawl quotes -O quotes.json
 
