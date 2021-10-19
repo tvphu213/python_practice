@@ -4,11 +4,11 @@ import pandas as pd
 import investpy
 from datetime import date
 from datetime import datetime
-import pandas as pd  
-import numpy as np  
-import matplotlib.pyplot as plt  
-import matplotlib.ticker as ticker 
-import matplotlib.dates as mdates  
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import matplotlib.dates as mdates
 from scripts.sql.connect_db import ProcessDB
 
 today = date.today()
@@ -25,7 +25,7 @@ def main():
     stock_codes = csv_file.get_stockcode_from_csv()
     dt = get_stock_data(stock_codes)
     plot_close_price(dt)
-    save_to_db(dt)
+    # save_to_db(dt)
 
 
 def get_stock_data(stock_codes):
@@ -53,7 +53,6 @@ def plot_close_price(dt):
 
 
 def visualize(stocks, x_dates, y_prices, catagory):
-    # fig, ax = plt.subplots()
     now = datetime.now()
     dt_string = now.strftime("%d%m%Y%H%M%S")
     title = '_'.join(stocks)
@@ -71,9 +70,10 @@ def visualize(stocks, x_dates, y_prices, catagory):
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(
         interval=60))  # x axis tick every 60 days
     # sets y axis tick spacing to 20
-    plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(20))
+    plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(100))
     for i in range(0, len(x_dates)):
-        plt.plot(x_dates[i], y_prices[i], label=stocks[i])  # plots the x and y
+        # plots the x and y
+        plt.plot(x_dates[i], y_prices[i], label=stocks[i])
     plt.grid(True)  # turns on axis grid
     plt.ylim(0)  # sets the y axis min to zero
     # rotates the x axis ticks 90 degress and font size 10
@@ -81,8 +81,9 @@ def visualize(stocks, x_dates, y_prices, catagory):
     plt.title(title)  # prints the title on the top
     plt.ylabel('Stock Price For ' + catagory)  # labels y axis
     plt.xlabel('Date')  # labels x axis
-    # plt.show()
-    plt.savefig("output/"+title+dt_string+'.png')
+    plt.legend()
+    plt.show()
+    # plt.savefig("output/"+title+dt_string+'.png')
 
 
 def save_to_db(data):
