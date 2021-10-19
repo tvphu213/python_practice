@@ -5,7 +5,6 @@ import investpy
 from datetime import date
 from datetime import datetime
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib.dates as mdates
@@ -25,7 +24,7 @@ def main():
     stock_codes = csv_file.get_stockcode_from_csv()
     dt = get_stock_data(stock_codes)
     plot_close_price(dt)
-    # save_to_db(dt)
+    save_to_db(dt)
 
 
 def get_stock_data(stock_codes):
@@ -56,9 +55,6 @@ def visualize(stocks, x_dates, y_prices, catagory):
     now = datetime.now()
     dt_string = now.strftime("%d%m%Y%H%M%S")
     title = '_'.join(stocks)
-    # edit this to change which value is plotted (see allstock.columns cell for options)
-    # makes matrix with only the stock info
-
     fig_size = plt.rcParams["figure.figsize"]  # loads current figure size
     fig_size[0] = 15  # sets the X size to 15
     fig_size[1] = 8
@@ -69,7 +65,7 @@ def visualize(stocks, x_dates, y_prices, catagory):
         mdates.DateFormatter('%m/%d/%Y'))  # display the date properly
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(
         interval=60))  # x axis tick every 60 days
-    # sets y axis tick spacing to 20
+    # sets y axis tick spacing to 100
     plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(100))
     for i in range(0, len(x_dates)):
         # plots the x and y
@@ -82,8 +78,8 @@ def visualize(stocks, x_dates, y_prices, catagory):
     plt.ylabel('Stock Price For ' + catagory)  # labels y axis
     plt.xlabel('Date')  # labels x axis
     plt.legend()
-    plt.show()
-    # plt.savefig("output/"+title+dt_string+'.png')
+    # plt.show()
+    plt.savefig("output/"+title+dt_string+'.png')
 
 
 def save_to_db(data):
@@ -106,11 +102,17 @@ def save_to_db(data):
     print("Da xoa bang {} (neu ton tai)".format(table_name))
 
     # create table
-    cur.execute("CREATE TABLE StockData(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, Company TEXT, Close_Prices REAL, Date TEXT)")
+    create_table_sql = ProcessDB.create_table_sql(
+        config.sql_create, table_name, {
+            "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE", "Company": "TEXT", "Close_Prices": "REAL", "Date": "TEXT"}
+    )
+    cur.execute(create_table_sql)
     print("Da tao bang", table_name)
 
-    cur.executemany(
-        "INSERT INTO StockData (Company, Close_Prices, Date) VALUES (?,?,?);", dtrow)
+    # tao insert table sql
+    insert_sql = ProcessDB.insert_sql(
+        config.sql_insert, table_name, ["Company", "Close_Prices", "Date"])
+    cur.executemany(insert_sql, dtrow)
     conn.commit()
 
     # in dep voi thu vien pandas
