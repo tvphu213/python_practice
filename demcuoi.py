@@ -18,35 +18,32 @@ config.get_sql_ini()
 def main():
     csv_file = DataFileProcess(config)
     path = csv_file.get_file_path()
-    csv_file.read_csv_file(path)
-    stock_codes = csv_file.get_stockcode_from_csv()
-    dt = get_stock_data(stock_codes)
-    plot_close_price(dt)
+    csv_data = pd.read_csv(path)
+    dt = get_stock_data(csv_data)
+    plot_price(dt,'Close')
     save_to_db(dt)
 
 
-def get_stock_data(stock_codes):
+def get_stock_data(csv_data):
     present = today.strftime("%d/%m/%Y")
     dt = {}
-    for key in stock_codes.keys():
-        df = investpy.get_stock_historical_data(stock=stock_codes[key],
-                                                country='United States',
-                                                from_date='01/01/2020',
-                                                to_date=present)
-        dt[stock_codes[key]] = df
+    for code in csv_data['Code']:
+        dt[code] = investpy.get_stock_historical_data(stock=code,
+                                                      country='United States',
+                                                      from_date='01/01/2020',
+                                                      to_date=present)
     return dt
 
 
-def plot_close_price(dt):
+def plot_price(dt, category):
     stocks = []
     x_dates = []
     y_prices = []
-    catagory = 'Close'
     for key in dt.keys():
         stocks.append(key)
         x_dates.append(dt[key].index)
-        y_prices.append(dt[key][catagory])
-    visualize(stocks, x_dates, y_prices, catagory)
+        y_prices.append(dt[key][category])
+    visualize(stocks, x_dates, y_prices, category)
 
 
 def visualize(stocks, x_dates, y_prices, catagory):

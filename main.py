@@ -1,4 +1,4 @@
-from scripts.python.module1 import Module1
+from scripts.python.python_practice_modl import Module1
 from scripts.python.data_file_process import DataFileProcess
 from scripts.python.get_conf import Config
 from scripts.sql.connect_db import ProcessDB
