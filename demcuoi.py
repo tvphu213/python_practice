@@ -20,7 +20,7 @@ def main():
     path = csv_file.get_file_path()
     csv_data = pd.read_csv(path)
     dt = get_stock_data(csv_data)
-    plot_price(dt,'Close')
+    plot_price(dt, 'Close')
     save_to_db(dt)
 
 
@@ -89,10 +89,8 @@ def save_to_db(data):
     cur, conn = db.connect()
     table_name = "StockData"
 
-    # tao drop table sql
-    drop_table_sql = ProcessDB.drop_table_sql(config.sql_drop, table_name)
-
     # drop table
+    drop_table_sql = ProcessDB.drop_table_sql(config.sql_drop, table_name)
     cur.execute(drop_table_sql)
     print("Da xoa bang {} (neu ton tai)".format(table_name))
 
@@ -104,13 +102,13 @@ def save_to_db(data):
     cur.execute(create_table_sql)
     print("Da tao bang", table_name)
 
-    # tao insert table sql
+    # insert data
     insert_sql = ProcessDB.insert_sql(
         config.sql_insert, table_name, ["Company", "Close_Prices", "Date"])
     cur.executemany(insert_sql, dtrow)
     conn.commit()
 
-    # in dep voi thu vien pandas
+    # print to check
     print(pd.read_sql_query("SELECT * FROM StockData", conn))
 
     db.close_cur(cur)
