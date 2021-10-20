@@ -4,14 +4,12 @@ import pandas as pd
 import investpy
 from datetime import date
 from datetime import datetime
-import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import matplotlib.dates as mdates
 from scripts.sql.connect_db import ProcessDB
 
 today = date.today()
-
 config = Config()
 config.get_init()
 config.get_sql_ini()
@@ -90,7 +88,7 @@ def save_to_db(data):
         dates = dt.index
         for i in range(0, len(prices)):
             dtrow.append((key, prices[i], dates[i].strftime("%d/%m/%Y")))
-    db = ProcessDB("stockdb.sqlite")
+    db = ProcessDB("data/database/stockdb.sqlite")
     cur, conn = db.connect()
     table_name = "StockData"
 
