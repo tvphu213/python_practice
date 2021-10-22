@@ -53,18 +53,6 @@ class DataFileProcess:
             ranges.append([min, max])
         return ranges
 
-    def get_stockcode_from_csv(self):
-        """
-        Ham tra ve lib {ten cong ty :stock code} 
-        """
-        data = {}
-        rows = self.row_data
-        for row in rows:
-            name = row[ColumnStock.NAME]
-            code = row[ColumnStock.CODE]
-            data[name] = code
-        return data
-
     def get_file_path_from_client(self):
         """
         Ham lay dia chi file csv tu nguoi dung

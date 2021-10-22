@@ -49,18 +49,18 @@ class PreProcessData():
             print("Column {} la truong so".format(column_name))
             print("index loi: ", *false_index)
 
-    # def numeric_validate1(self, column_name):
-    #     check_list = self.data_frame[column_name].str.isnumeric()
-    #     count = 0
-    #     false_index = []
-    #     null = 0
-    #     for index, row in self.data_frame.iterrows():
-    #         if check_list[index] == True:
-    #             count += 1
-    #         elif str(check_list[index]) is 'nan':
-    #             null += 1
-    #         else:
-    #             false_index.append([index, row[column_name]])
-    #     if count > 0 and (count+null)/len(check_list) >= 0.9:
-    #         print("Column {} la truong so".format(column_name))
-    #         print("index loi: ", *false_index)
+    def numeric_validate1(self, column_name):
+        check_list = self.data_frame[column_name].str.isnumeric()
+        count = 0
+        false_index = []
+        null = 0
+        for index, row in self.data_frame.iterrows():
+            if check_list[index] == True:
+                count += 1
+            elif str(check_list[index]) == 'NaN':
+                null += 1
+            else:
+                false_index.append([index, row[column_name]])
+        if count > 0 and (count+null)/len(check_list) >= 0.9:
+            print("Column {} la truong so".format(column_name))
+            print("index loi: ", *false_index)
